@@ -4,6 +4,31 @@ A [Kiro Crew](https://kiro.dev/docs/crew/apps/) app for Kiroween 2026. It brings
 
 This app is the Kiro Crew companion of Deadline Séance, built for the Kiroween 2026 "Best Kiro Crew App" bonus. Main repository: [hvaler/deadline-seance](https://github.com/hvaler/deadline-seance). Live web app: [hvaler.github.io/deadline-seance](https://hvaler.github.io/deadline-seance/). Demo video: [youtu.be/Vn5QPBWRCSQ](https://youtu.be/Vn5QPBWRCSQ).
 
+## How it relates to Deadline Séance
+
+This app runs the main repo's engine unchanged, fed with live Jira issues in the same CSV format the web app imports; the main repo does not depend on this one.
+
+```mermaid
+flowchart LR
+  subgraph main["deadline-seance (Kiro IDE)"]
+    web["Web app<br/>no network, no LLM"]
+    csv["Import Jira CSV"]
+    engine["Rule engine -> MCP server<br/>solve_freeze · what_if · death_certificate"]
+    web --> engine
+    csv --> web
+  end
+  subgraph crew["deadline-seance-crew (Kiro Crew)"]
+    jira["jira-board<br/>read-only, 127.0.0.1"]
+    vendored["Vendored engine<br/>commit 72ad1ac, SHA-256 pinned"]
+    agent["undertaker agent · skill · paused cron"]
+    jira -- "CSV" --> agent
+    agent --> vendored
+  end
+  JiraCloud[("Jira Cloud")] --> jira
+  engine -. "same bundle, copied" .-> vendored
+  jira -. "same CSV format" .-> csv
+```
+
 Ask the **undertaker** agent things like *"what happens to Friday's cut if Ana is away?"*. It reads the board from Jira, asks Deadline Séance's `what_if`, and answers only with numbers the tools returned:
 
 > Ana away all week: capacity 59 -> 39, tickets kept 12 -> 9, cost of delay 167 -> 124. Out: HB-13, HB-15, HB-18.
