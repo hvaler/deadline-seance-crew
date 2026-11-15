@@ -2,6 +2,8 @@
 
 A [Kiro Crew](https://kiro.dev/docs/crew/apps/) app for Kiroween 2026. It brings the Deadline Séance rule into Crew, fed with the live open issues of a Jira Cloud project.
 
+This app is the Kiro Crew companion of Deadline Séance, built for the Kiroween 2026 "Best Kiro Crew App" bonus. Main repository: [hvaler/deadline-seance](https://github.com/hvaler/deadline-seance). Live web app: [hvaler.github.io/deadline-seance](https://hvaler.github.io/deadline-seance/). Demo video: [youtu.be/Vn5QPBWRCSQ](https://youtu.be/Vn5QPBWRCSQ).
+
 Ask the **undertaker** agent things like *"what happens to Friday's cut if Ana is away?"*. It reads the board from Jira, asks Deadline Séance's `what_if`, and answers only with numbers the tools returned:
 
 > Ana away all week: capacity 59 -> 39, tickets kept 12 -> 9, cost of delay 167 -> 124. Out: HB-13, HB-15, HB-18.

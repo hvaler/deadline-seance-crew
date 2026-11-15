@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Source | `dist-mcp/server.mjs` of the Deadline Séance repo, built by `npm run mcp:build` |
-| Source commit | `72ad1acde5eb8593a1a4dbafb44032a2d98e50ca` (2026-11-15; `mcp/`, `src/engine/` and `package.json` clean at that commit) |
+| Source commit | [`72ad1acde5eb8593a1a4dbafb44032a2d98e50ca`](https://github.com/hvaler/deadline-seance/commit/72ad1acde5eb8593a1a4dbafb44032a2d98e50ca) (2026-11-15; `mcp/`, `src/engine/` and `package.json` clean at that commit) |
 | SHA-256 | `A5AD495DC8B185E717ABEABAD95B2B1A4491BE32745B68CC7A8D0366109DE652` |
 | Size | 1,040,867 bytes |
 | Licence | MIT, same holder as this repo |
