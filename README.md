@@ -1,4 +1,10 @@
+<p align="center"><img src="assets/logo.svg" width="96" alt="Deadline Séance Crew logo: a tombstone with a candle flame and three purple dots"></p>
+
 # Deadline Séance Crew
+
+![Deadline Séance Crew: ask what a release freeze keeps, from live Jira Cloud issues](assets/cover.svg)
+
+![Kiro Crew](https://img.shields.io/badge/Kiro_Crew-0.12%2B-a98bff) ![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A522-5FA04E?logo=nodedotjs&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-ES_modules-F7DF1E?logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-launcher-3776AB?logo=python&logoColor=white) ![Model Context Protocol](https://img.shields.io/badge/Model_Context_Protocol-MCP-111111) ![Jira Cloud REST API](https://img.shields.io/badge/Jira_Cloud-REST_API_v3-0052CC?logo=jira&logoColor=white) ![node:test](https://img.shields.io/badge/tests-node%3Atest-339933?logo=nodedotjs&logoColor=white) ![MIT licence](https://img.shields.io/badge/licence-MIT-blue)
 
 A [Kiro Crew](https://kiro.dev/docs/crew/apps/) app for Kiroween 2026. It brings the Deadline Séance rule into Crew, fed with the live open issues of a Jira Cloud project.
 
@@ -142,6 +148,17 @@ npm test
 ```
 
 Uses `node:test` and no network. Recorded Jira answers live in `tests/fixtures/`: an invented site (`example.atlassian.net`), invented ids, and the 19 sample tickets. One test sends the produced CSV to the vendored Deadline Séance server and checks the sample's numbers. The HTTP tests run the server on a free port of 127.0.0.1 with a test token.
+
+## Built with
+
+- [Kiro Crew](https://kiro.dev/docs/crew/apps/): hosts the app, runs the undertaker agent and the paused nightly job.
+- [Node.js](https://nodejs.org/) 22 or later: runs `jira-board`, the seed script and the vendored engine, with no dependencies.
+- [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript) (ES modules): the language of the reader, the scripts and the tests.
+- [Python](https://www.python.org/): only `bin/node-launch.py`, the launcher Crew starts to run the vendored engine.
+- [Model Context Protocol](https://modelcontextprotocol.io/): how the agent calls `jira_board_csv` and the Deadline Séance tools.
+- [Jira Cloud REST API](https://developer.atlassian.com/cloud/jira/platform/rest/v3/): where `jira-board` reads the open issues.
+- [node:test](https://nodejs.org/api/test.html): the test runner, with recorded Jira answers and no network.
+- [MIT licence](https://opensource.org/license/mit): the licence of this app, as for the main project.
 
 ## Licence
 
