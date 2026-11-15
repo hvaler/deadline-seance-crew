@@ -1,6 +1,6 @@
 # deadline-seance-crew: design
 
-Status: built, 41 tests pass, v0.1.0 reinstalled (not enabled). `jira-board` now runs **outside Crew** over HTTP (section 1.4). Not yet tried live. Date: 2026-11-15.
+Status: v0.1.0, 49 tests pass. Tried end to end on 2026-11-15 against a real Jira Cloud space: 19 issues and 5 Blocks links were seeded with `scripts/seed-jira.mjs`, and `solve_freeze` and `what_if`, asked through the undertaker agent, gave the same cut as the sample board: capacity 59, 12 kept, cost of delay 167. With Ana away all week: capacity 59 -> 39, cost of delay 167 -> 124, 12 -> 9 kept. The fog differs (2 nights in 1,000 against 3), because the hash uses the issue key. `jira-board` runs **outside Crew** over HTTP (section 1.4).
 
 ## 1. What was found on Windows (Crew 0.12.2)
 
@@ -45,7 +45,7 @@ So `app.json` holds only the placeholder `Bearer ${env:DSC_JIRA_BOARD_TOKEN}`, n
 
 Other facts from the code: an app url server with no `backend.entryPoint` is "self-managed". Its url is kept as written and not port-rewritten (`apps/bridges_mcp.py`, `agent_materialization/mcp_sources.py`). Install accepted the entry with `url` and `headers`.
 
-Not yet seen live: that kiro-cli expands the header and connects. That is the first check after enable.
+Seen live on 2026-11-15: after `DSC_JIRA_BOARD_TOKEN` was added to Crew's `.env` and Crew was restarted, the agent called `jira_board_csv` over `127.0.0.1` with the header expanded.
 
 ### 1.5 Other facts
 
@@ -149,16 +149,18 @@ Order of checks: Host, Origin, path, token, method, content type, body.
 
 ## 6. Tests
 
-`npm test` (`node:test`): 41 tests, no network beyond 127.0.0.1, all pass.
+`npm test` (`node:test`): 49 tests, no network beyond 127.0.0.1, all pass.
 - `tests/board.test.mjs` (16): CSV, requests, pagination, input, config, errors, fields, limits, escaping, links.
 - `tests/server.test.mjs` (6): stdio, `check` modes, errors without secrets.
 - `tests/http.test.mjs` (12): binds to 127.0.0.1 only. Lists the tool and answers a call from the recorded Jira. Refuses a foreign Host (including `localhost` on another port, `0.0.0.0`, `[::1]`, `127.0.0.1.nip.io`). Refuses a foreign Origin. Refuses a missing, wrong or malformed bearer token without calling Jira. Allows only POST with JSON, with body limits. No credential or token in any response. The token file is created once, private and reused. The real `serve-http.mjs` prints exactly one startup line with no secret.
 - `tests/e2e.test.mjs` (2): the CSV goes into the vendored server. `what_if` with Ana away gives 59 -> 39, 12 -> 9, 167 -> 124, and HB-13, HB-15, HB-18 out.
-- `tests/seed.test.mjs` (5): the seed script against a recorded empty project.
+- `tests/seed.test.mjs` (13): the seed script against a recorded empty project, and `--links-only` against a recorded project that already has the 19 issues. They pin the link direction (`linkBody`), the missing-only rule, the refusal on a link in the wrong direction and on a missing or duplicated summary, and that nothing is written on a dry run.
 
 ## 7. Seed script
 
-`scripts/seed-jira.mjs`, not run. Without `--yes` it only reads. With `--yes` it creates 19 Stories and 5 Blocks links in an empty project. Run it from the user's terminal, like `jira-board`.
+`scripts/seed-jira.mjs`. Run it from the user's terminal, like `jira-board`. Without `--yes` it only reads.
+- Seed: with `--yes` it creates 19 Stories and 5 Blocks links in an empty project. Run on 2026-11-15, it created HB-1 to HB-19. Its first link came out reversed and it stopped before the other four (section 10, last decision).
+- `--links-only`: for a project that already has the issues. It maps the sample to the existing issues by summary (refused if one is missing or duplicated), reads the existing Blocks links, and creates only the missing ones. A Blocks link that runs the wrong way between two planned issues is named and nothing is created. It never deletes or edits. With `--yes` it creates the links, and after the first one it reads it back.
 
 ## 8. Vendored server
 
@@ -168,9 +170,17 @@ Order of checks: Host, Origin, path, token, method, content type, body.
 
 Not started.
 
-## 10. Open questions
+## 10. Decisions
 
-1. Does kiro-cli expand `${env:DSC_JIRA_BOARD_TOKEN}` in the header and reach `127.0.0.1`? This is the first live check.
-2. Does the gateway need a restart to read a new line in `~/.kiro/crew/.env`? Assumed yes.
-3. "Story point estimate" exists on the site? To check with `check: "setup"`.
-4. Should the nightly job warn more clearly when `jira-board` is not running? Today the agent quotes the connection error.
+| Topic | Decision | How it was settled |
+|---|---|---|
+| Engine | Vendored, unchanged: `vendor/deadline-seance-mcp.mjs` at commit `72ad1ac`, SHA-256 pinned (section 8). | The app does not need the main repo on disk and never rebuilds anything there. |
+| Field names | Jira fields are matched by name through `/rest/api/3/field`: Story point estimate, Value, Urgency, Risk, Times Postponed, and Cost of Delay (optional). Must-have is the label `must-have`. Dependencies are Blocks links. | `check: "setup"` on 2026-11-15 found each of the six names once on the site, including Story point estimate. |
+| Who is away | Only from the question. The team (names, points per half-day) is Deadline Séance's sample team. | Jira has no team data here, and the tool asks for no people fields. |
+| Won't Do | The CSV never carries a Resolution, so no ticket arrives already put down. Putting one down is a `what_if` change (`put_down`). | Open means status category not Done, because team-managed projects often leave Resolution empty on Done. |
+| Cron time zone | The cron entry declares `"timezone": "Europe/Madrid"`. It ships paused. | `timezone` is not in the manifest docs, and the Schedule tab has not been checked for it. |
+| `jira-board` location | Outside Crew, started by the user, over Streamable HTTP on `127.0.0.1` with a local bearer token. | Crew scrubs `JIRA_API_TOKEN` from every process it starts, on purpose (section 1.3). The variable is not renamed. The header is `Bearer ${env:DSC_JIRA_BOARD_TOKEN}`, with the value in Crew's `.env` (section 1.4). Worked live on 2026-11-15 after a Crew restart; whether the restart was strictly needed was not tested. |
+| Relative paths | A stdio server is started only through the `.py` launcher (`bin/node-launch.py`). | A plain relative `node` entry failed to start; the launcher worked (section 1.2). |
+| Jira link direction | In `POST /rest/api/3/issueLink`, `inwardIssue` is the blocker and `outwardIssue` the blocked issue. "A depends on B" is sent as `linkBody(B, A)`. | The first seed run sent them the other way and the first link came out reversed. A test pins the body, and the reader (`inwardIssue` on an issue means "is blocked by") is covered by its own test. |
+
+Still open: whether the nightly job should warn more clearly when `jira-board` is not running. Today the agent quotes the connection error.

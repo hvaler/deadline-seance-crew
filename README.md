@@ -38,6 +38,7 @@ Ask the **undertaker** agent things like *"what happens to Friday's cut if Ana i
 | Part | What it does |
 |---|---|
 | `jira-board` MCP server (`mcp/jira-board/`) | One read-only tool, `jira_board_csv`: the open issues of one project as the Jira CSV Deadline Séance imports. Node, no dependencies. **You start it in your own terminal** (below); Crew reaches it at `http://127.0.0.1:47821/mcp`. |
+| Design notes (`docs/design.md`) | What was found on Windows with Crew 0.12.2, how the parts fit, the tests, and the decisions. |
 | `deadline-seance` MCP server (`vendor/deadline-seance-mcp.mjs`) | The Deadline Séance server, vendored unchanged: `solve_freeze`, `what_if`, `death_certificate`. See `vendor/README.md`. |
 | `undertaker` agent, `deadline-seance` skill | Calls `jira_board_csv`, then a Deadline Séance tool. States only returned numbers. |
 | `nightly-certificate` job | Weekdays 20:00 Europe/Madrid, writes tonight's death certificate. **Ships paused.** |
