@@ -1,0 +1,233 @@
+{
+  "issues": [
+    {
+      "id": "10011",
+      "key": "HB-11",
+      "fields": {
+        "summary": "Savings goals",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 13,
+        "customfield_10101": null,
+        "customfield_10102": null,
+        "customfield_10103": null,
+        "customfield_10104": 0,
+        "customfield_10105": 14
+      }
+    },
+    {
+      "id": "10012",
+      "key": "HB-12",
+      "fields": {
+        "summary": "Multi-currency wallet",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "31100",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "outwardIssue": {
+              "key": "HB-14"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 21,
+        "customfield_10101": 5,
+        "customfield_10102": 2,
+        "customfield_10103": 3,
+        "customfield_10104": 3,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10013",
+      "key": "HB-13",
+      "fields": {
+        "summary": "Accessibility audit fixes",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 5,
+        "customfield_10101": 3,
+        "customfield_10102": 3,
+        "customfield_10103": 3,
+        "customfield_10104": 2,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10014",
+      "key": "HB-14",
+      "fields": {
+        "summary": "FX rate alerts",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "21300",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "inwardIssue": {
+              "key": "HB-12"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 5,
+        "customfield_10101": 5,
+        "customfield_10102": 3,
+        "customfield_10103": 3,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10015",
+      "key": "HB-15",
+      "fields": {
+        "summary": "Phone wallet pass",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 8,
+        "customfield_10101": 5,
+        "customfield_10102": 3,
+        "customfield_10103": 5,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10016",
+      "key": "HB-16",
+      "fields": {
+        "summary": "Balance home-screen widget",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 2,
+        "customfield_10101": 3,
+        "customfield_10102": 2,
+        "customfield_10103": 2,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10017",
+      "key": "HB-17",
+      "fields": {
+        "summary": "Onboarding rewrite",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "21600",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "inwardIssue": {
+              "key": "HB-4"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 21,
+        "customfield_10101": 8,
+        "customfield_10102": 3,
+        "customfield_10103": 5,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10018",
+      "key": "HB-18",
+      "fields": {
+        "summary": "Referral programme",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 8,
+        "customfield_10101": 5,
+        "customfield_10102": 1,
+        "customfield_10103": 3,
+        "customfield_10104": 4,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10019",
+      "key": "HB-19",
+      "fields": {
+        "summary": "Core ledger migration",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 48,
+        "customfield_10101": 8,
+        "customfield_10102": 5,
+        "customfield_10103": 8,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    }
+  ],
+  "isLast": true
+}

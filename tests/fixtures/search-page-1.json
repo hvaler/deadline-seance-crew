@@ -1,0 +1,311 @@
+{
+  "issues": [
+    {
+      "id": "10001",
+      "key": "HB-1",
+      "fields": {
+        "summary": "Fix stale balance after a transfer",
+        "labels": [
+          "must-have"
+        ],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 5,
+        "customfield_10101": 8,
+        "customfield_10102": 5,
+        "customfield_10103": 5,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10002",
+      "key": "HB-2",
+      "fields": {
+        "summary": "Strong-auth callback (PSD2)",
+        "labels": [
+          "must-have"
+        ],
+        "issuelinks": [
+          {
+            "id": "3100",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "outwardIssue": {
+              "key": "HB-9"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 8,
+        "customfield_10101": 8,
+        "customfield_10102": 13,
+        "customfield_10103": 8,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10003",
+      "key": "HB-3",
+      "fields": {
+        "summary": "Store listing and release notes",
+        "labels": [
+          "must-have"
+        ],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 2,
+        "customfield_10101": 2,
+        "customfield_10102": 3,
+        "customfield_10103": 1,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10004",
+      "key": "HB-4",
+      "fields": {
+        "summary": "Biometric login fallback",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "3300",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "outwardIssue": {
+              "key": "HB-6"
+            }
+          },
+          {
+            "id": "3301",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "outwardIssue": {
+              "key": "HB-17"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 5,
+        "customfield_10101": 5,
+        "customfield_10102": 3,
+        "customfield_10103": 3,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10005",
+      "key": "HB-5",
+      "fields": {
+        "summary": "Dark-mode statement PDF",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 3,
+        "customfield_10101": 3,
+        "customfield_10102": 1,
+        "customfield_10103": 3,
+        "customfield_10104": 3,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10006",
+      "key": "HB-6",
+      "fields": {
+        "summary": "Card freeze toggle",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "2500",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "inwardIssue": {
+              "key": "HB-4"
+            }
+          },
+          {
+            "id": "3501",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "outwardIssue": {
+              "key": "HB-7"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 5,
+        "customfield_10101": 8,
+        "customfield_10102": 5,
+        "customfield_10103": 3,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10007",
+      "key": "HB-7",
+      "fields": {
+        "summary": "Card freeze push alerts",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "2600",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "inwardIssue": {
+              "key": "HB-6"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 3,
+        "customfield_10101": 5,
+        "customfield_10102": 3,
+        "customfield_10103": 3,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10008",
+      "key": "HB-8",
+      "fields": {
+        "summary": "Transaction search",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 8,
+        "customfield_10101": 5,
+        "customfield_10102": 2,
+        "customfield_10103": 3,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10009",
+      "key": "HB-9",
+      "fields": {
+        "summary": "Instant-transfer limits screen",
+        "labels": [],
+        "issuelinks": [
+          {
+            "id": "2800",
+            "type": {
+              "id": "10000",
+              "name": "Blocks",
+              "inward": "is blocked by",
+              "outward": "blocks"
+            },
+            "inwardIssue": {
+              "key": "HB-2"
+            }
+          }
+        ],
+        "fixVersions": [
+          {
+            "id": "10200",
+            "name": "Hollow Bank app 3.2"
+          }
+        ],
+        "customfield_10016": 5,
+        "customfield_10101": 5,
+        "customfield_10102": 5,
+        "customfield_10103": 5,
+        "customfield_10104": 0,
+        "customfield_10105": null
+      }
+    },
+    {
+      "id": "10010",
+      "key": "HB-10",
+      "fields": {
+        "summary": "Spending insights widget",
+        "labels": [],
+        "issuelinks": [],
+        "fixVersions": [
+          {
+            "id": "10201",
+            "name": "Next release"
+          }
+        ],
+        "customfield_10016": 13,
+        "customfield_10101": 5,
+        "customfield_10102": 2,
+        "customfield_10103": 3,
+        "customfield_10104": 2,
+        "customfield_10105": null
+      }
+    }
+  ],
+  "nextPageToken": "invented-token-page-2",
+  "isLast": false
+}

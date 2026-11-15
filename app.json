@@ -1,0 +1,45 @@
+{
+  "name": "deadline-seance-crew",
+  "version": "0.1.0",
+  "displayName": "Deadline Séance Crew",
+  "description": "Ask what a release freeze keeps, and what a change does to it, from the live open issues of a Jira Cloud project.",
+  "author": "hvaler",
+  "license": "MIT",
+  "tags": ["jira", "release", "planning", "kiroween"],
+  "highlights": [
+    "Reads open Jira Cloud issues read-only and hands them to Deadline Séance as CSV",
+    "The undertaker agent only states numbers the tools returned",
+    "A paused weekday-evening job writes tonight's death certificate"
+  ],
+  "agents": ["agents/undertaker.json"],
+  "skills": ["skills/deadline-seance"],
+  "mcpServers": {
+    "deadline-seance": {
+      "command": "python",
+      "args": ["bin/node-launch.py", "vendor/deadline-seance-mcp.mjs"]
+    },
+    "jira-board": {
+      "url": "http://127.0.0.1:47821/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:DSC_JIRA_BOARD_TOKEN}"
+      }
+    }
+  },
+  "crons": [
+    {
+      "name": "nightly-certificate",
+      "cron_expr": "0 20 * * 1-5",
+      "timezone": "Europe/Madrid",
+      "agent": "undertaker",
+      "enabled": false,
+      "message": "Write tonight's death certificate for the Jira project HB. Call jira_board_csv with project HB. Then call death_certificate with board { source: 'csv', text: <the csv> }, now = the time of this run, and freezeAt = the first Friday 18:00 after now, both as ISO 8601 times in Europe/Madrid (for example 2026-11-20T18:00:00+01:00). Nobody is away. Reply with the certificate markdown exactly as the tool returned it. If a tool returns an error, reply with that error and nothing else."
+    }
+  ],
+  "permissions": {
+    "network": true,
+    "cron": true
+  },
+  "platform": {
+    "os": ["windows", "macos", "linux"]
+  }
+}

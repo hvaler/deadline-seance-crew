@@ -1,0 +1,16 @@
+{
+  "name": "deadline-seance-crew",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "jira-board": "node mcp/jira-board/serve-http.mjs",
+    "seed": "node scripts/seed-jira.mjs",
+    "fixtures": "node tests/fixtures/make-fixtures.mjs"
+  }
+}

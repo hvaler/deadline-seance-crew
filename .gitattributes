@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.csv -text
+# The vendored bundle is checked by its SHA-256: keep its bytes exactly.
+vendor/*.mjs -text

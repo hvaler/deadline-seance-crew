@@ -1,0 +1,62 @@
+[
+  {
+    "id": "summary",
+    "name": "Summary",
+    "custom": false
+  },
+  {
+    "id": "labels",
+    "name": "Labels",
+    "custom": false
+  },
+  {
+    "id": "issuelinks",
+    "name": "Linked Issues",
+    "custom": false
+  },
+  {
+    "id": "fixVersions",
+    "name": "Fix versions",
+    "custom": false
+  },
+  {
+    "id": "assignee",
+    "name": "Assignee",
+    "custom": false
+  },
+  {
+    "id": "customfield_10020",
+    "name": "Sprint",
+    "custom": true
+  },
+  {
+    "id": "customfield_10016",
+    "name": "Story point estimate",
+    "custom": true
+  },
+  {
+    "id": "customfield_10101",
+    "name": "Value",
+    "custom": true
+  },
+  {
+    "id": "customfield_10102",
+    "name": "Urgency",
+    "custom": true
+  },
+  {
+    "id": "customfield_10103",
+    "name": "Risk",
+    "custom": true
+  },
+  {
+    "id": "customfield_10104",
+    "name": "Times Postponed",
+    "custom": true
+  },
+  {
+    "id": "customfield_10105",
+    "name": "Cost of Delay",
+    "custom": true
+  }
+]
