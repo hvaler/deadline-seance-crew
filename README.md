@@ -8,7 +8,7 @@
 
 A [Kiro Crew](https://kiro.dev/docs/crew/apps/) app for Kiroween 2026. It brings the Deadline Séance rule into Crew, fed with the live open issues of a Jira Cloud project.
 
-This app is the Kiro Crew companion of Deadline Séance, built for the Kiroween 2026 "Best Kiro Crew App" bonus. Main repository: [hvaler/deadline-seance](https://github.com/hvaler/deadline-seance). Live web app: [hvaler.github.io/deadline-seance](https://hvaler.github.io/deadline-seance/). Demo video: [youtu.be/Vn5QPBWRCSQ](https://youtu.be/Vn5QPBWRCSQ).
+This app is the Kiro Crew companion of Deadline Séance, built for the Kiroween 2026 "Best Kiro Crew App" bonus. Main repository: [hvaler/deadline-seance](https://github.com/hvaler/deadline-seance). Live web app: [hvaler.github.io/deadline-seance](https://hvaler.github.io/deadline-seance/). Demo video: [youtu.be/SV9ZxPKZj-E](https://youtu.be/SV9ZxPKZj-E) (Kiro Crew part at 2:08).
 
 ## How it relates to Deadline Séance
 
